@@ -3,10 +3,12 @@ services:
   app:
     container_name: app
     build:
-      context: .docker/node
+      context: .docker/node/
       dockerfile: Dockerfile
       args:
         - NODE_ENV=development
     entrypoint: .docker/node/entrypoint.sh
     volumes:
       - .:/home/node/app
+    ports:
+      - 3000:3000
